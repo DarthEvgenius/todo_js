@@ -27,17 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Create new task, press the main button
   newTodo.addEventListener('click', function () {
-    // New task obj
+    // New task object
     let task = {
       point: '',
       done: false,
     }
 
+    // Get input
     let newInput = prompt('Add a new task!');
 
     // Check input
     if (newInput === null) return;
-
     // RegEx for excepting whitespaces and empty
     const re = /\S+/
     if (!newInput.match(re)) {
@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add new task to tasks array
     tasks.push(task);
-
     // Save tasks arr to local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks));
 
@@ -57,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update item-counter
     itemCountSpan.innerHTML = tasks.length;
+    // Update unchecked counter
+    uncheckedCountSpan.innerHTML = unchecked()
   })
 
   // Add new task to the list
