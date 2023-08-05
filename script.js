@@ -25,8 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Set unchecked counter
   uncheckedCountSpan.innerHTML = unchecked()
 
-  // Add new task, press the main button
+  // Create new task, press the main button
   newTodo.addEventListener('click', function () {
+    // New task obj
     let task = {
       point: '',
       done: false,
