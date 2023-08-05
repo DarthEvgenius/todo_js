@@ -1,12 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  const classNames = {
-    TODO_ITEM: 'todo-container',
-    TODO_CHECKBOX: 'todo-checkbox',
-    TODO_TEXT: 'todo-text',
-    TODO_DELETE: 'todo-delete',
-  }
-
   // Variables with DOM elements
   const list = document.getElementById('todo-list')
   const itemCountSpan = document.getElementById('item-count')
