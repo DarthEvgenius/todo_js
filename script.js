@@ -102,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(event)
     id = event.target.id;
     console.log(id)
+    console.log(tasks[id])
+
     // Invert status of the task when clicked
     tasks[id].done = !tasks[id].done
 
