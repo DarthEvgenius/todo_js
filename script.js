@@ -50,8 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('todo_list', JSON.stringify(tasks));
 
     // Add new task to the list and show it
-    // showList(task);
-    showTasks();
+    showList(task);
 
     setCounters();
   })
@@ -146,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Rewrite local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks))
 
-    showTasks();
     setCounters();
   }
 
