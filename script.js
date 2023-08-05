@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     checkbox.addEventListener('change', (event) => {
       uncheckedCountSpan.innerHTML = checkToggle(event);
+      setCounters();
     });
 
     // Add text of the task
