@@ -9,16 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // List of tasks
   let tasks = []
   // Get list from storage
-  let storageTasks = localStorage.getItem('todo_list')
+  // let storageTasks = localStorage.getItem('todo_list')
 
   // Check local storage for the tasks and add them to the array
-  if (storageTasks) {
-    showTasks();
-    // tasks = JSON.parse(storageTasks);
-    // tasks.forEach(element => {
-    //   showList(element)
-    // });
-  }
+  // if (storageTasks) {
+  showTasks();
+  // tasks = JSON.parse(storageTasks);
+  // tasks.forEach(element => {
+  //   showList(element)
+  // });
+  // }
 
   setCounters();
 
@@ -57,10 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Show todo list
   function showTasks() {
-    tasks = JSON.parse(storageTasks);
-    tasks.forEach(element => {
-      showList(element)
-    });
+    // Get list from storage
+    let storageTasks = localStorage.getItem('todo_list')
+    if (storageTasks) {
+      tasks = JSON.parse(storageTasks);
+      tasks.forEach(element => {
+        showList(element)
+      });
+    }
   }
 
   // Shows new task, add todo list
