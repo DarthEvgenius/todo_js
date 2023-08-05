@@ -50,15 +50,20 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('todo_list', JSON.stringify(tasks));
 
     // Add new task to the list and show it
-    showList(task);
+    // showList(task);
+    showTasks()
 
     setCounters();
   })
 
   // Show todo list
   function showTasks() {
+    // Blank list
+    list.innerHTML = '';
+
     // Get list from storage
     let storageTasks = localStorage.getItem('todo_list');
+    // Show list
     if (storageTasks) {
       tasks = JSON.parse(storageTasks);
       tasks.forEach(element => {
