@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // List of tasks
   let tasks = []
+  // Get list from storage
   let storageTasks = localStorage.getItem('todo_list')
 
   // Check local storage for the tasks and add them to the array
