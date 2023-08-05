@@ -19,11 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Set item counter
-  itemCountSpan.innerHTML = tasks.length;
+  setCounters();
 
-  // Set unchecked counter
-  uncheckedCountSpan.innerHTML = unchecked()
 
   // Main event - create new task, press the main button
   newTodo.addEventListener('click', function () {
@@ -54,10 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add new task to the list and show it
     showList(task);
 
-    // Update item-counter
-    itemCountSpan.innerHTML = tasks.length;
-    // Update unchecked counter
-    uncheckedCountSpan.innerHTML = unchecked()
+    setCounters()
   })
 
 
@@ -139,6 +133,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Rewrite local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks))
+
+    setCounters();
+  }
+
+  // Sets counters for tasks and unchecked
+  function setCounters() {
+    // Set item counter
+    itemCountSpan.innerHTML = tasks.length;
+    // Set unchecked counter
+    uncheckedCountSpan.innerHTML = unchecked()
   }
 
 })
