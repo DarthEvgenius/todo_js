@@ -99,8 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Check/uncheck handler
   function checkToggle(event) {
+    console.log(event)
     id = event.target.id;
-
+    console.log(id)
     // Invert status of the task when clicked
     tasks[id].done = !tasks[id].done
 
