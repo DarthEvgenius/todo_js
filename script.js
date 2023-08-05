@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Check local storage for the tasks and add them to the array
   if (storageTasks) {
-    showTasks()
+    showTasks();
     // tasks = JSON.parse(storageTasks);
     // tasks.forEach(element => {
     //   showList(element)
@@ -50,9 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('todo_list', JSON.stringify(tasks));
 
     // Add new task to the list and show it
-    showList(task);
+    // showList(task);
+    showTasks();
 
-    setCounters()
+    setCounters();
   })
 
   // Show todo list
@@ -145,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Rewrite local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks))
 
+    showTasks();
     setCounters();
   }
 
