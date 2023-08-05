@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     tasks.splice(id, 1)
 
     // Rewrite local storage
-    localStorage.setItem('todo_list', JSON.stringify(tasks))
+    localStorage.setItem('todo_list', JSON.stringify(tasks));
 
     setCounters();
   }
