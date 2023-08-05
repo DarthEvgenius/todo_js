@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Show todo list
   function showTasks() {
     // Get list from storage
-    let storageTasks = localStorage.getItem('todo_list')
+    let storageTasks = localStorage.getItem('todo_list');
     if (storageTasks) {
       tasks = JSON.parse(storageTasks);
       tasks.forEach(element => {
