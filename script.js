@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (storageTasks) {
       tasks = JSON.parse(storageTasks);
       tasks.forEach(element => {
-        showList(element)
+        showListItem(element)
       });
     }
   }
 
   // Shows new task, add todo list
-  function showList(item) {
+  function showListItem(item) {
     // Create id for item from it's index in tasks array
     const id = tasks.lastIndexOf(item)
 
@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Rewrite local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks));
 
+    showTasks();
     setCounters();
   }
 
