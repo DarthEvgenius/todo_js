@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Set unchecked counter
   uncheckedCountSpan.innerHTML = unchecked()
 
-  // Create new task, press the main button
+  // Main event - create new task, press the main button
   newTodo.addEventListener('click', function () {
     // New task object
     let task = {
@@ -60,32 +60,34 @@ document.addEventListener('DOMContentLoaded', function () {
     uncheckedCountSpan.innerHTML = unchecked()
   })
 
-  // Add new task to the list
+
+  // Shows new task, add todo list
   function showList(item) {
-    // Create id for item
+    // Create id for item from it's index in tasks array
     const id = tasks.lastIndexOf(item)
 
+    // Create DOM elements
     const li = document.createElement('li');
-    const checkbox = document.createElement('input')
-    checkbox.type = 'checkbox'
-    checkbox.id = `${id}`
-    checkbox.classList.add('todo-checkbox')
 
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `${id}`;
+    checkbox.classList.add('todo-checkbox');
     if (item.done) {
       checkbox.checked = true;
     } else {
       checkbox.checked = false;
     }
-
     checkbox.addEventListener('change', (event) => {
       uncheckedCountSpan.innerHTML = checkToggle(event);
     });
-    const label = document.createElement('label');
-    label.htmlFor = id;
 
     // Add text of the task
+    const label = document.createElement('label');
+    label.htmlFor = id;
     label.appendChild(document.createTextNode(item.point));
 
+    // Remove button
     const remove = document.createElement('button');
     remove.classList.add('todo-delete');
     remove.dataset.taskId = id;
@@ -94,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
       removeTask(event);
     })
 
-
+    // Add elements to the DOM
     li.append(checkbox);
     li.append(label);
     li.append(remove);
@@ -105,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function checkToggle(event) {
     id = event.target.id;
 
-    // Invert status of the task
+    // Invert status of the task when clicked
     tasks[id].done = !tasks[id].done
 
     // Rewrite local storage
@@ -118,11 +120,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // Unchecked counter
   function unchecked() {
     let counter = 0;
+    // Counts checked boxes
     const checkboxes = document.querySelectorAll('input[type=checkbox]')
     checkboxes.forEach(elem => { if (elem.checked) counter++ })
     return checkboxes.length - counter
   }
 
+  // Delete the task
   function removeTask(event) {
     item = event.target;
     id = item.dataset.taskId;
@@ -130,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Remove from DOM
     item.parentElement.remove();
 
-    // Remove  from the storage list
+    // Remove  from the tasks array
     tasks.splice(id, 1)
 
     // Rewrite local storage
