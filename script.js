@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Counts checked boxes
     const checkboxes = document.querySelectorAll('input[type=checkbox]')
     checkboxes.forEach(elem => { if (elem.checked) counter++ })
+    // Return unchecked boxes
     return checkboxes.length - counter
   }
 
@@ -141,11 +142,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Rewrite local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks));
 
+    // Update DOM for new id's
     showTasks();
     setCounters();
   }
 
-  // Sets counters for tasks and unchecked
+  // Show counters for tasks and unchecked
   function setCounters() {
     // Set item counter
     itemCountSpan.innerHTML = tasks.length;
@@ -154,10 +156,3 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 })
-
-
-
-// // Remove checked element from the storage list
-// tasks.splice(item.target.id, 1)
-// // Rewrite local storage
-// localStorage.setItem('todo_list', JSON.stringify(tasks))
