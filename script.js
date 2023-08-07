@@ -6,24 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const uncheckedCountSpan = document.getElementById('unchecked-count')
   const newTodo = document.querySelector('.newTodo')
 
-  // List of tasks
+  // Define List of tasks
   let tasks = []
-  // Get list from storage
-  // let storageTasks = localStorage.getItem('todo_list')
-
-  // Check local storage for the tasks and add them to the array
-  // if (storageTasks) {
+  // Show the whole todo list
   showTasks();
-  // tasks = JSON.parse(storageTasks);
-  // tasks.forEach(element => {
-  //   showList(element)
-  // });
-  // }
-
+  // Show counters
   setCounters();
 
-
-  // Main event - create new task, press the main button
+  // Main event - create a new task, press the main button
   newTodo.addEventListener('click', function () {
     // New task object
     let task = {
@@ -42,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return
     }
 
+    // Populate new task object
     task.point = newInput;
 
     // Add new task to tasks array
@@ -49,16 +40,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Save tasks arr to local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks));
 
-    // Add new task to the list and show it
-    // showList(task);
-    showTasks()
-
+    showTasks();
     setCounters();
   })
 
-  // Show todo list
+
+
+  // Shows the whole todo list
   function showTasks() {
-    // Blank list
+    // Clear the page
     list.innerHTML = '';
 
     // Get list from storage
@@ -72,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Shows new task, add todo list
+  // Shows single task, update DOM
   function showListItem(item) {
     // Create id for item from it's index in tasks array
     const id = tasks.lastIndexOf(item)
@@ -114,12 +104,9 @@ document.addEventListener('DOMContentLoaded', function () {
     list.append(li);
   }
 
-  // Check/uncheck handler
+  // Check/uncheck toggler
   function checkToggle(event) {
-    console.log(event)
     id = event.target.id;
-    console.log(id)
-    console.log(tasks[id])
 
     // Invert status of the task when clicked
     tasks[id].done = !tasks[id].done
