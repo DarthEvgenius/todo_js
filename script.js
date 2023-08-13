@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // checkboxes.forEach(elem => { if (elem.checked) counter++ });
     // // Return unchecked boxes
     // return checkboxes.length - counter;
-    return tasks.filter()
+    return tasks.filter(task => !task.done).length;
   }
 
   // Delete the task
