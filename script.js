@@ -65,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Shows single task, update DOM
   function showListItem(item) {
     // Create id for item from it's index in tasks array
-    const id = tasks.lastIndexOf(item)
-
+    const id = tasks.lastIndexOf(item);
 
     // Create DOM elements
     const li = document.createElement('li');
