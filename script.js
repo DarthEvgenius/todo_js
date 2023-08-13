@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // Variables with DOM elements
-  const list = document.getElementById('todo-list')
-  const itemCountSpan = document.getElementById('item-count')
-  const uncheckedCountSpan = document.getElementById('unchecked-count')
-  const newTodo = document.querySelector('.newTodo')
+  const list = document.getElementById('todo-list');
+  const itemCountSpan = document.getElementById('item-count');
+  const uncheckedCountSpan = document.getElementById('unchecked-count');
+  const newTodo = document.querySelector('.newTodo');
 
   // Define List of tasks
-  let tasks = []
+  let tasks = [];
   // Show the whole todo list
   showTasks();
   // Show counters
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // RegEx for excepting whitespaces and empty
     const re = /\S+/
     if (!newInput.match(re)) {
-      return
+      return;
     }
 
     // Populate new task object
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (storageTasks) {
       tasks = JSON.parse(storageTasks);
       tasks.forEach(element => {
-        showListItem(element)
+        showListItem(element);
       });
     }
   }
@@ -69,12 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Create DOM elements
     const li = document.createElement('li');
-
-    // li.innerHTML = `
-    // <input type="checkbox" id=${id} class="todo-checkbox">
-    // <label for=${id}>asd</label>
-    // <button class="todo-delete" data-task-id=${id}>Delete task</button>
-    // `
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -115,23 +109,23 @@ document.addEventListener('DOMContentLoaded', function () {
     id = event.target.id;
 
     // Invert status of the task when clicked
-    tasks[id].done = !tasks[id].done
+    tasks[id].done = !tasks[id].done;
 
     // Rewrite local storage
-    localStorage.setItem('todo_list', JSON.stringify(tasks))
+    localStorage.setItem('todo_list', JSON.stringify(tasks));
 
     // Count unchecked boxes
-    return unchecked()
+    return unchecked();
   }
 
   // Unchecked counter
   function unchecked() {
     let counter = 0;
     // Counts checked boxes
-    const checkboxes = document.querySelectorAll('input[type=checkbox]')
-    checkboxes.forEach(elem => { if (elem.checked) counter++ })
+    const checkboxes = document.querySelectorAll('input[type=checkbox]');
+    checkboxes.forEach(elem => { if (elem.checked) counter++ });
     // Return unchecked boxes
-    return checkboxes.length - counter
+    return checkboxes.length - counter;
   }
 
   // Delete the task
@@ -139,11 +133,11 @@ document.addEventListener('DOMContentLoaded', function () {
     item = event.target;
     id = item.dataset.taskId;
 
-    // Remove from DOM
+    // Remove list item from DOM
     item.parentElement.remove();
 
     // Remove  from the tasks array
-    tasks.splice(id, 1)
+    tasks.splice(id, 1);
 
     // Rewrite local storage
     localStorage.setItem('todo_list', JSON.stringify(tasks));
@@ -153,12 +147,12 @@ document.addEventListener('DOMContentLoaded', function () {
     setCounters();
   }
 
-  // Show counters for tasks and unchecked
+  // Show counters for tasks and unchecked boxes
   function setCounters() {
     // Set item counter
     itemCountSpan.innerHTML = tasks.length;
     // Set unchecked counter
-    uncheckedCountSpan.innerHTML = unchecked()
+    uncheckedCountSpan.innerHTML = unchecked();
   }
 
 })
