@@ -67,8 +67,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create id for item from it's index in tasks array
     const id = tasks.lastIndexOf(item)
 
+
     // Create DOM elements
     const li = document.createElement('li');
+
+    li.innerHTML = ``
+
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
