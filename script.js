@@ -71,7 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create DOM elements
     const li = document.createElement('li');
 
-    li.innerHTML = ``
+    li.innerHTML = `
+    <input type="checkbox" id=${id} class="todo-checkbox">
+    <label for=${id}>asd</label>
+    <button class="todo-delete" data-task-id=${id}>Delete task</button>
+    `
 
 
     const checkbox = document.createElement('input');
