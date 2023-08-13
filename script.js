@@ -120,12 +120,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Unchecked counter
   function unchecked() {
-    let counter = 0;
-    // Counts checked boxes
-    const checkboxes = document.querySelectorAll('input[type=checkbox]');
-    checkboxes.forEach(elem => { if (elem.checked) counter++ });
-    // Return unchecked boxes
-    return checkboxes.length - counter;
+    // let counter = 0;
+    // // Counts checked boxes
+    // const checkboxes = document.querySelectorAll('input[type=checkbox]');
+    // checkboxes.forEach(elem => { if (elem.checked) counter++ });
+    // // Return unchecked boxes
+    // return checkboxes.length - counter;
+    return tasks.filter()
   }
 
   // Delete the task
